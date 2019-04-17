@@ -1,10 +1,17 @@
 var photosService = (function() {
 
-    var resultWrapper = document.querySelector(".js_results__wrapper");
-    var showMoreBtn = document.querySelector(".js_results__btn");
+    var resultsWrapper;
+    var resultsItemClassName;
+    var showMoreBtn;
     var itemsPerPage = 10;
     var itemsDisplayed = 0;
     var links = [];
+
+    function _setElems(elems) {
+        resultsItemClassName = elems.resultsItemClassName;
+        resultsWrapper = document.querySelector(elems.resultsWrapper);
+        showMoreBtn = document.querySelector(elems.showMoreBtn);
+    }
 
     function _setLinks(data) {
         links = data;
@@ -21,22 +28,24 @@ var photosService = (function() {
         for (var i = itemsDisplayed; i < (itemsDisplayed + itemsPerPage); i++) {
             if (links[i] === undefined) continue;
             li = document.createElement("li");
-            li.className = "results__item";
+            li.className = resultsItemClassName;
             img = document.createElement("img");
             img.src = links[i];
             li.appendChild(img);
-            resultWrapper.appendChild(li);
+            resultsWrapper.appendChild(li);
         }
 
         itemsDisplayed += itemsPerPage;
     }
 
     function _reset() {
-        resultWrapper.innerHTML = '';
+        resultsWrapper.innerHTML = '';
         itemsDisplayed = 0;
+        showMoreBtn.style.display = "inline-block";
     }
 
     return {
+        setElems: _setElems,
         setLinks: _setLinks,
         render: _render,
         reset: _reset

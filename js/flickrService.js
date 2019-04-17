@@ -1,6 +1,7 @@
 var flickrService = (function() {
 
-    var searchInput = document.querySelector(".js_search-form__input");
+    var searchInput;
+    var REST_URL = "http://api.flickr.com/services/rest/";
 
     var options = {
         "api_key": window.apiKey,
@@ -9,23 +10,23 @@ var flickrService = (function() {
         "nojsoncallback": "1"
     };
 
-    function _makeUrl() {
-        var url = "http://api.flickr.com/services/rest/",
-            first = true;
+    function _setSearchInput(selector) {
+        searchInput = document.querySelector(selector);
+    }
 
-        for (var item in options) {
-            if (options.hasOwnProperty(item)) {
-                url += (first ? "?" : "&") + item + "=" + options[item];
-                first = false;
+    function _makeUrl(urlRaw) {
+        for (var option in options) {
+            if (options.hasOwnProperty(option)) {
+                urlRaw += (urlRaw === REST_URL ? "?" : "&") + option + "=" + options[option];
             }
         }
 
-        return url + "&text=" + searchInput.value;
+        return urlRaw + "&text=" + searchInput.value;
     }
 
     function _sendRequest(callback) {
-        var url = _makeUrl(),
-            xhr;
+        var url = _makeUrl(REST_URL);
+        var xhr;
 
         xhr = new XMLHttpRequest();
         xhr.onload = function() { callback(this.response); };
@@ -48,6 +49,7 @@ var flickrService = (function() {
     }
 
     return {
+        setSearchInput: _setSearchInput,
         sendRequest: function(callback) {
             _sendRequest(function(data) {
                 callback(_makeLinks(data))
