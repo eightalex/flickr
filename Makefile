@@ -1,2 +1,2 @@
 build:
-    cp env.js.dist env.js -n
+	cp env.js.dist env.js -n

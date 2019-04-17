@@ -1,7 +1,7 @@
 var flickrService = (function() {
 
     var searchInput;
-    var REST_URL = "http://api.flickr.com/services/rest/";
+    var API_URL = "http://api.flickr.com/services/rest/";
 
     var options = {
         "api_key": window.apiKey,
@@ -14,18 +14,18 @@ var flickrService = (function() {
         searchInput = document.querySelector(selector);
     }
 
-    function _makeUrl(urlRaw) {
+    function _makeUrl(url) {
         for (var option in options) {
             if (options.hasOwnProperty(option)) {
-                urlRaw += (urlRaw === REST_URL ? "?" : "&") + option + "=" + options[option];
+                url += (url === API_URL ? "?" : "&") + option + "=" + options[option];
             }
         }
 
-        return urlRaw + "&text=" + searchInput.value;
+        return url + "&text=" + searchInput.value;
     }
 
     function _sendRequest(callback) {
-        var url = _makeUrl(REST_URL);
+        var url = _makeUrl(API_URL);
         var xhr;
 
         xhr = new XMLHttpRequest();
