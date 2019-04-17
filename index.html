@@ -9,28 +9,23 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <form class="search-form">
+    <form class="search-form js_search-form">
         <div class="container search-form__container">
-            <input class="input search-form__input" type="text">
+            <input class="input search-form__input js_search-form__input" type="search">
             <button class="btn search-form__btn">Search</button>
         </div>
     </form>
     <div class="results">
         <div class="container">
-            <div class="results__wrapper">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
-                <img class="results__item" src="https://www.nature.com/polopoly_fs/7.44180.1495028629!/image/WEB_GettyImages-494098244.jpg_gen/derivatives/landscape_630/WEB_GettyImages-494098244.jpg" alt="Nature">
+            <ul class="results__wrapper js_results__wrapper"></ul>
+            <div class="results__btn">
+                <button class="btn js_results__btn">Show more</button>
             </div>
-            <button class="btn results__btn">Show more</button>
         </div>
     </div>
+    <script src="env.js"></script>
+    <script src="js/flickrService.js"></script>
+    <script src="js/photosService.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
