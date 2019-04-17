@@ -35,13 +35,13 @@ var flickrService = (function() {
     }
 
     function _makeLinks(data) {
-        var d = JSON.parse(data);
-        var p = d.photos.photo;
+        var parsedData = JSON.parse(data);
+        var photo = parsedData.photos.photo;
         var links = [];
 
-        for (var z = 0; z < d.photos.photo.length; z++) {
+        for (var i = 0; i < photo.length; i++) {
             links.push(
-                'https://farm'+p[z]['farm']+'.staticflickr.com/'+p[z]['server']+'/'+p[z]['id']+'_'+p[z]['secret']+'_n.jpg'
+                'https://farm' + photo[i].farm + '.staticflickr.com/' + photo[i].server + '/' + photo[i].id + '_' + photo[i].secret + '_n.jpg'
             );
         }
 
