@@ -1,0 +1,37 @@
+.results {
+  &__wrapper {
+    margin: -10px 0;
+  }
+
+  &__item {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  &__btn {
+    display: block;
+    margin: 50px auto 0;
+  }
+
+  @include mq(375px) {
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin: -5px;
+    }
+
+    &__item {
+      margin: 5px;
+      width: calc(33% - 10px);
+    }
+  }
+
+  @include mq(768px) {
+    &__item {
+      width: calc(20% - 10px);
+    }
+  }
+}
