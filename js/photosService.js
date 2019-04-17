@@ -1,6 +1,7 @@
 var photosService = (function() {
 
     var resultWrapper = document.querySelector(".js_results__wrapper");
+    var showMoreBtn = document.querySelector(".js_results__btn");
     var itemsPerPage = 10;
     var itemsDisplayed = 0;
     var links = [];
@@ -13,6 +14,7 @@ var photosService = (function() {
         var li, img;
 
         if (itemsDisplayed >= links.length) {
+            showMoreBtn.style.display = "none";
             return;
         }
 
