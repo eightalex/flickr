@@ -19,6 +19,7 @@ var photosService = (function() {
 
     function _render() {
         var li, img;
+        var list = document.createDocumentFragment();
 
         if (itemsDisplayed >= links.length) {
             showMoreBtn.style.display = "none";
@@ -32,9 +33,10 @@ var photosService = (function() {
             img = document.createElement("img");
             img.src = links[i];
             li.appendChild(img);
-            resultsWrapper.appendChild(li);
+            list.appendChild(li);
         }
 
+        resultsWrapper.appendChild(list);
         itemsDisplayed += itemsPerPage;
     }
 
